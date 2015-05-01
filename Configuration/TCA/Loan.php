@@ -1,4 +1,21 @@
 <?php
+/**
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
+
+/*
+ * @author Valentin Funk <valentin.funk@gmail.com>
+ */
+
 if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
@@ -6,48 +23,15 @@ if (!defined ('TYPO3_MODE')) {
 $GLOBALS['TCA']['tx_littlelibrary_domain_model_loan'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_littlelibrary_domain_model_loan']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, period_from, period_to, library_user, inventory_item',
+		'showRecordFieldList' => 'hidden, period_from, period_to, library_user, inventory_item',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, period_from, period_to, library_user, inventory_item, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'inventory_item, period_from, period_to, library_user, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
-	
-		'sys_language_uid' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
-			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'sys_language',
-				'foreign_table_where' => 'ORDER BY sys_language.title',
-				'items' => array(
-					array('LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages', -1),
-					array('LLL:EXT:lang/locallang_general.xlf:LGL.default_value', 0)
-				),
-			),
-		),
-		'l10n_parent' => array(
-			'displayCond' => 'FIELD:sys_language_uid:>:0',
-			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
-			'config' => array(
-				'type' => 'select',
-				'items' => array(
-					array('', 0),
-				),
-				'foreign_table' => 'tx_littlelibrary_domain_model_loan',
-				'foreign_table_where' => 'AND tx_littlelibrary_domain_model_loan.pid=###CURRENT_PID### AND tx_littlelibrary_domain_model_loan.sys_language_uid IN (-1,0)',
-			),
-		),
-		'l10n_diffsource' => array(
-			'config' => array(
-				'type' => 'passthrough',
-			),
-		),
-
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
@@ -87,10 +71,22 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_loan'] = array(
 				),
 			),
 		),
-
+		//
+		// Domain model properties
+		//
+		'inventory_item' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:little_library/Resources/Private/Language/locallang.xlf:tx_littlelibrary_domain_model_loan.inventory_item',
+			'config' => array(
+				'type' => 'select',
+				'foreign_table' => 'tx_littlelibrary_domain_model_inventory_item',
+				'minitems' => 0,
+				'maxitems' => 1,
+			),
+		),
 		'period_from' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:little_library/Resources/Private/Language/locallang_db.xlf:tx_littlelibrary_domain_model_loan.period_from',
+			'label' => 'LLL:EXT:little_library/Resources/Private/Language/locallang.xlf:tx_littlelibrary_domain_model_loan.period_from',
 			'config' => array(
 				'dbType' => 'date',
 				'type' => 'input',
@@ -102,36 +98,23 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_loan'] = array(
 		),
 		'period_to' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:little_library/Resources/Private/Language/locallang_db.xlf:tx_littlelibrary_domain_model_loan.period_to',
+			'label' => 'LLL:EXT:little_library/Resources/Private/Language/locallang.xlf:tx_littlelibrary_domain_model_loan.period_to',
 			'config' => array(
+				'dbType' => 'date',
 				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+				'size' => 7,
+				'eval' => 'date',
+				'checkbox' => 0,
+				'default' => '0000-00-00'
 			),
 		),
 		'library_user' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:little_library/Resources/Private/Language/locallang_db.xlf:tx_littlelibrary_domain_model_loan.library_user',
+			'label' => 'LLL:EXT:little_library/Resources/Private/Language/locallang.xlf:tx_littlelibrary_domain_model_loan.library_user',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
-			),
-		),
-		'inventory_item' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:little_library/Resources/Private/Language/locallang_db.xlf:tx_littlelibrary_domain_model_loan.inventory_item',
-			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'tx_littlelibrary_domain_model_inventoryitem',
-				'minitems' => 0,
-				'maxitems' => 1,
-			),
-		),
-		
-		'inventoryitem' => array(
-			'config' => array(
-				'type' => 'passthrough',
 			),
 		),
 	),

@@ -225,26 +225,26 @@ class MediaTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function getInventoryItemReturnsInitialValueForInventoryItem() {
+	public function getInventoryItemsReturnsInitialValueForInventoryItem() {
 		$newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->assertEquals(
 			$newObjectStorage,
-			$this->subject->getInventoryItem()
+			$this->subject->getInventoryItems()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setInventoryItemForObjectStorageContainingInventoryItemSetsInventoryItem() {
+	public function setInventoryItemsForObjectStorageContainingInventoryItemSetsInventoryItems() {
 		$inventoryItem = new \VF\LittleLibrary\Domain\Model\InventoryItem();
-		$objectStorageHoldingExactlyOneInventoryItem = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$objectStorageHoldingExactlyOneInventoryItem->attach($inventoryItem);
-		$this->subject->setInventoryItem($objectStorageHoldingExactlyOneInventoryItem);
+		$objectStorageHoldingExactlyOneInventoryItems = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$objectStorageHoldingExactlyOneInventoryItems->attach($inventoryItem);
+		$this->subject->setInventoryItems($objectStorageHoldingExactlyOneInventoryItems);
 
 		$this->assertAttributeEquals(
-			$objectStorageHoldingExactlyOneInventoryItem,
-			'inventoryItem',
+			$objectStorageHoldingExactlyOneInventoryItems,
+			'inventoryItems',
 			$this->subject
 		);
 	}
@@ -252,11 +252,11 @@ class MediaTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function addInventoryItemToObjectStorageHoldingInventoryItem() {
+	public function addInventoryItemToObjectStorageHoldingInventoryItems() {
 		$inventoryItem = new \VF\LittleLibrary\Domain\Model\InventoryItem();
-		$inventoryItemObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('attach'), array(), '', FALSE);
-		$inventoryItemObjectStorageMock->expects($this->once())->method('attach')->with($this->equalTo($inventoryItem));
-		$this->inject($this->subject, 'inventoryItem', $inventoryItemObjectStorageMock);
+		$inventoryItemsObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('attach'), array(), '', FALSE);
+		$inventoryItemsObjectStorageMock->expects($this->once())->method('attach')->with($this->equalTo($inventoryItem));
+		$this->inject($this->subject, 'inventoryItems', $inventoryItemsObjectStorageMock);
 
 		$this->subject->addInventoryItem($inventoryItem);
 	}
@@ -264,11 +264,11 @@ class MediaTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function removeInventoryItemFromObjectStorageHoldingInventoryItem() {
+	public function removeInventoryItemFromObjectStorageHoldingInventoryItems() {
 		$inventoryItem = new \VF\LittleLibrary\Domain\Model\InventoryItem();
-		$inventoryItemObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('detach'), array(), '', FALSE);
-		$inventoryItemObjectStorageMock->expects($this->once())->method('detach')->with($this->equalTo($inventoryItem));
-		$this->inject($this->subject, 'inventoryItem', $inventoryItemObjectStorageMock);
+		$inventoryItemsObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('detach'), array(), '', FALSE);
+		$inventoryItemsObjectStorageMock->expects($this->once())->method('detach')->with($this->equalTo($inventoryItem));
+		$this->inject($this->subject, 'inventoryItems', $inventoryItemsObjectStorageMock);
 
 		$this->subject->removeInventoryItem($inventoryItem);
 

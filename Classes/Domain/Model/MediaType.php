@@ -33,29 +33,29 @@ namespace VF\LittleLibrary\Domain\Model;
 class MediaType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
-	 * type
+	 * name
 	 *
 	 * @var string
 	 */
-	protected $type = '';
+	protected $name = '';
 
 	/**
-	 * Returns the type
+	 * Returns the name
 	 *
-	 * @return string $type
+	 * @return string $name
 	 */
-	public function getType() {
-		return $this->type;
+	public function getName() {
+		return $this->name;
 	}
 
 	/**
-	 * Sets the type
+	 * Sets the name
 	 *
-	 * @param string $type
+	 * @param string $name
 	 * @return void
 	 */
-	public function setType($type) {
-		$this->type = $type;
+	public function setName($name) {
+		$this->name = $name;
 	}
 
 }

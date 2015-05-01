@@ -69,12 +69,12 @@ class Media extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $type = NULL;
 
 	/**
-	 * inventoryItem
+	 * inventoryItems
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\VF\LittleLibrary\Domain\Model\InventoryItem>
 	 * @cascade remove
 	 */
-	protected $inventoryItem = NULL;
+	protected $inventoryItems = NULL;
 
 	/**
 	 * publisher
@@ -103,7 +103,7 @@ class Media extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected function initStorageObjects() {
 		$this->persons = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->type = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->inventoryItem = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->inventoryItems = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->publisher = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
@@ -249,7 +249,7 @@ class Media extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return void
 	 */
 	public function addInventoryItem(\VF\LittleLibrary\Domain\Model\InventoryItem $inventoryItem) {
-		$this->inventoryItem->attach($inventoryItem);
+		$this->inventoryItems->attach($inventoryItem);
 	}
 
 	/**
@@ -259,26 +259,26 @@ class Media extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return void
 	 */
 	public function removeInventoryItem(\VF\LittleLibrary\Domain\Model\InventoryItem $inventoryItemToRemove) {
-		$this->inventoryItem->detach($inventoryItemToRemove);
+		$this->inventoryItems->detach($inventoryItemToRemove);
 	}
 
 	/**
-	 * Returns the inventoryItem
+	 * Returns the inventoryItems
 	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\VF\LittleLibrary\Domain\Model\InventoryItem> $inventoryItem
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\VF\LittleLibrary\Domain\Model\InventoryItem> $inventoryItems
 	 */
-	public function getInventoryItem() {
-		return $this->inventoryItem;
+	public function getInventoryItems() {
+		return $this->inventoryItems;
 	}
 
 	/**
-	 * Sets the inventoryItem
+	 * Sets the inventoryItems
 	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\VF\LittleLibrary\Domain\Model\InventoryItem> $inventoryItem
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\VF\LittleLibrary\Domain\Model\InventoryItem> $inventoryItems
 	 * @return void
 	 */
-	public function setInventoryItem(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $inventoryItem) {
-		$this->inventoryItem = $inventoryItem;
+	public function setInventoryItems(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $inventoryItems) {
+		$this->inventoryItems = $inventoryItems;
 	}
 
 	/**

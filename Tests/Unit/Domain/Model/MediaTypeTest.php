@@ -51,22 +51,22 @@ class MediaTypeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function getTypeReturnsInitialValueForString() {
+	public function getNameReturnsInitialValueForString() {
 		$this->assertSame(
 			'',
-			$this->subject->getType()
+			$this->subject->getName()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setTypeForStringSetsType() {
-		$this->subject->setType('Conceived at T3CON10');
+	public function setNameForStringSetsName() {
+		$this->subject->setName('Conceived at T3CON10');
 
 		$this->assertAttributeEquals(
 			'Conceived at T3CON10',
-			'type',
+			'name',
 			$this->subject
 		);
 	}

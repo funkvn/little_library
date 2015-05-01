@@ -3,16 +3,17 @@
 	<file source-language="de" datatype="plaintext" original="messages" date="2015-05-01T08:29:27Z" product-name="little_library">
 		<header/>
 		<body>
-			<trans-unit id="tx_littlelibrary_domain_model_inventoryitem">
+			<!-- Labels used at the Backend -->
+			<trans-unit id="tx_littlelibrary_domain_model_inventory_item">
 				<source>Inventory Item</source>
 			</trans-unit>
-			<trans-unit id="tx_littlelibrary_domain_model_inventoryitem.shelf_mark">
+			<trans-unit id="tx_littlelibrary_domain_model_inventory_item.shelf_mark">
 				<source>Shelf Mark</source>
 			</trans-unit>
-			<trans-unit id="tx_littlelibrary_domain_model_inventoryitem.media">
+			<trans-unit id="tx_littlelibrary_domain_model_inventory_item.media">
 				<source>Media</source>
 			</trans-unit>
-			<trans-unit id="tx_littlelibrary_domain_model_inventoryitem.loans">
+			<trans-unit id="tx_littlelibrary_domain_model_inventory_item.loans">
 				<source>Loans</source>
 			</trans-unit>
 			<trans-unit id="tx_littlelibrary_domain_model_media">
@@ -48,25 +49,25 @@
 			<trans-unit id="tx_littlelibrary_domain_model_person.last_name">
 				<source>Last Name</source>
 			</trans-unit>
-			<trans-unit id="tx_littlelibrary_domain_model_personassignment">
+			<trans-unit id="tx_littlelibrary_domain_model_person_assignment">
 				<source>Person Assignment</source>
 			</trans-unit>
-			<trans-unit id="tx_littlelibrary_domain_model_personassignment.type">
+			<trans-unit id="tx_littlelibrary_domain_model_person_assignment.type">
 				<source>Type</source>
 			</trans-unit>
-			<trans-unit id="tx_littlelibrary_domain_model_personassignment.person">
+			<trans-unit id="tx_littlelibrary_domain_model_person_assignment.person">
 				<source>Person</source>
 			</trans-unit>
-			<trans-unit id="tx_littlelibrary_domain_model_persontype">
+			<trans-unit id="tx_littlelibrary_domain_model_person_type">
 				<source>Person Type</source>
 			</trans-unit>
-			<trans-unit id="tx_littlelibrary_domain_model_persontype.name">
+			<trans-unit id="tx_littlelibrary_domain_model_person_type.name">
 				<source>Name</source>
 			</trans-unit>
-			<trans-unit id="tx_littlelibrary_domain_model_mediatype">
+			<trans-unit id="tx_littlelibrary_domain_model_media_type">
 				<source>Media Type</source>
 			</trans-unit>
-			<trans-unit id="tx_littlelibrary_domain_model_mediatype.type">
+			<trans-unit id="tx_littlelibrary_domain_model_media_type.type">
 				<source>Type</source>
 			</trans-unit>
 			<trans-unit id="tx_littlelibrary_domain_model_loan">

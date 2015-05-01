@@ -1,21 +1,37 @@
 <?php
+/**
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
+
+/*
+ * @author Valentin Funk <valentin.funk@gmail.com>
+ */
+
 if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$GLOBALS['TCA']['tx_littlelibrary_domain_model_mediatype'] = array(
-	'ctrl' => $GLOBALS['TCA']['tx_littlelibrary_domain_model_mediatype']['ctrl'],
+$GLOBALS['TCA']['tx_littlelibrary_domain_model_media_type'] = array(
+	'ctrl' => $GLOBALS['TCA']['tx_littlelibrary_domain_model_media_type']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, type',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, type, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
-	
 		'sys_language_uid' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
@@ -38,8 +54,8 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_mediatype'] = array(
 				'items' => array(
 					array('', 0),
 				),
-				'foreign_table' => 'tx_littlelibrary_domain_model_mediatype',
-				'foreign_table_where' => 'AND tx_littlelibrary_domain_model_mediatype.pid=###CURRENT_PID### AND tx_littlelibrary_domain_model_mediatype.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_littlelibrary_domain_model_media_type',
+				'foreign_table_where' => 'AND tx_littlelibrary_domain_model_media_type.pid=###CURRENT_PID### AND tx_littlelibrary_domain_model_media_type.sys_language_uid IN (-1,0)',
 			),
 		),
 		'l10n_diffsource' => array(
@@ -47,7 +63,6 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_mediatype'] = array(
 				'type' => 'passthrough',
 			),
 		),
-
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
@@ -87,20 +102,16 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_mediatype'] = array(
 				),
 			),
 		),
-
-		'type' => array(
+		//
+		// Domain model properties
+		//
+		'name' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:little_library/Resources/Private/Language/locallang_db.xlf:tx_littlelibrary_domain_model_mediatype.type',
+			'label' => 'LLL:EXT:little_library/Resources/Private/Language/locallang.xlf:tx_littlelibrary_domain_model_media_type.name',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
-			),
-		),
-		
-		'media' => array(
-			'config' => array(
-				'type' => 'passthrough',
 			),
 		),
 	),
