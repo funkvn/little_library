@@ -1,28 +1,18 @@
 <?php
+/**
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
+
 namespace VF\LittleLibrary\Tests\Unit\Controller;
-/***************************************************************
- *  Copyright notice
- *
- *  (c) 2015 Valentin Funk <valentin.funk@gmail.com>
- *  			
- *  All rights reserved
- *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
 
 /**
  * Test case for class VF\LittleLibrary\Controller\InventoryItemController.
@@ -36,10 +26,16 @@ class InventoryItemControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 */
 	protected $subject = NULL;
 
+	/**
+	 * @return void
+	 */
 	protected function setUp() {
 		$this->subject = $this->getMock('VF\\LittleLibrary\\Controller\\InventoryItemController', array('redirect', 'forward', 'addFlashMessage'), array(), '', FALSE);
 	}
 
+	/**
+	 * @return void
+	 */
 	protected function tearDown() {
 		unset($this->subject);
 	}
@@ -51,7 +47,7 @@ class InventoryItemControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 
 		$allInventoryItems = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array(), array(), '', FALSE);
 
-		$inventoryItemRepository = $this->getMock('', array('findAll'), array(), '', FALSE);
+		$inventoryItemRepository = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\Repository', array('findAll'), array(), '', FALSE);
 		$inventoryItemRepository->expects($this->once())->method('findAll')->will($this->returnValue($allInventoryItems));
 		$this->inject($this->subject, 'inventoryItemRepository', $inventoryItemRepository);
 
@@ -94,7 +90,7 @@ class InventoryItemControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	public function createActionAddsTheGivenInventoryItemToInventoryItemRepository() {
 		$inventoryItem = new \VF\LittleLibrary\Domain\Model\InventoryItem();
 
-		$inventoryItemRepository = $this->getMock('', array('add'), array(), '', FALSE);
+		$inventoryItemRepository = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\Repository', array('add'), array(), '', FALSE);
 		$inventoryItemRepository->expects($this->once())->method('add')->with($inventoryItem);
 		$this->inject($this->subject, 'inventoryItemRepository', $inventoryItemRepository);
 
@@ -120,7 +116,7 @@ class InventoryItemControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	public function updateActionUpdatesTheGivenInventoryItemInInventoryItemRepository() {
 		$inventoryItem = new \VF\LittleLibrary\Domain\Model\InventoryItem();
 
-		$inventoryItemRepository = $this->getMock('', array('update'), array(), '', FALSE);
+		$inventoryItemRepository = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\Repository', array('update'), array(), '', FALSE);
 		$inventoryItemRepository->expects($this->once())->method('update')->with($inventoryItem);
 		$this->inject($this->subject, 'inventoryItemRepository', $inventoryItemRepository);
 
@@ -133,7 +129,7 @@ class InventoryItemControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	public function deleteActionRemovesTheGivenInventoryItemFromInventoryItemRepository() {
 		$inventoryItem = new \VF\LittleLibrary\Domain\Model\InventoryItem();
 
-		$inventoryItemRepository = $this->getMock('', array('remove'), array(), '', FALSE);
+		$inventoryItemRepository = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\Repository', array('remove'), array(), '', FALSE);
 		$inventoryItemRepository->expects($this->once())->method('remove')->with($inventoryItem);
 		$this->inject($this->subject, 'inventoryItemRepository', $inventoryItemRepository);
 

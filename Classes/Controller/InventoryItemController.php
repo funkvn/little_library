@@ -1,40 +1,33 @@
 <?php
+/**
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
+
 namespace VF\LittleLibrary\Controller;
-
-
-/***************************************************************
- *
- *  Copyright notice
- *
- *  (c) 2015 Valentin Funk <valentin.funk@gmail.com>
- *
- *  All rights reserved
- *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
 
 /**
  * InventoryItemController
+ *
+ * @author Valentin Funk <valentin.funk@gmail.com>
  */
 class InventoryItemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	/**
-	 * action list
-	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\Repository
+	 * @inject
+	 */
+	protected $inventoryItemRepository = NULL;
+
+	/**
 	 * @return void
 	 */
 	public function listAction() {
@@ -43,8 +36,6 @@ class InventoryItemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 	}
 
 	/**
-	 * action show
-	 *
 	 * @param \VF\LittleLibrary\Domain\Model\InventoryItem $inventoryItem
 	 * @return void
 	 */
@@ -53,31 +44,25 @@ class InventoryItemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 	}
 
 	/**
-	 * action new
-	 *
-	 * @param \VF\LittleLibrary\Domain\Model\InventoryItem $newInventoryItem
-	 * @ignorevalidation $newInventoryItem
+	 * @param \VF\LittleLibrary\Domain\Model\InventoryItem $inventoryItem
+	 * @ignorevalidation $iventoryItem
 	 * @return void
 	 */
-	public function newAction(\VF\LittleLibrary\Domain\Model\InventoryItem $newInventoryItem = NULL) {
-		$this->view->assign('newInventoryItem', $newInventoryItem);
+	public function newAction(\VF\LittleLibrary\Domain\Model\InventoryItem $inventoryItem = NULL) {
+		$this->view->assign('newInventoryItem', $inventoryItem);
 	}
 
 	/**
-	 * action create
-	 *
-	 * @param \VF\LittleLibrary\Domain\Model\InventoryItem $newInventoryItem
+	 * @param \VF\LittleLibrary\Domain\Model\InventoryItem $inventoryItem
 	 * @return void
 	 */
-	public function createAction(\VF\LittleLibrary\Domain\Model\InventoryItem $newInventoryItem) {
+	public function createAction(\VF\LittleLibrary\Domain\Model\InventoryItem $inventoryItem) {
 		$this->addFlashMessage('The object was created. Please be aware that this action is publicly accessible unless you implement an access check. See <a href="http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain" target="_blank">Wiki</a>', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
-		$this->inventoryItemRepository->add($newInventoryItem);
+		$this->inventoryItemRepository->add($inventoryItem);
 		$this->redirect('list');
 	}
 
 	/**
-	 * action edit
-	 *
 	 * @param \VF\LittleLibrary\Domain\Model\InventoryItem $inventoryItem
 	 * @ignorevalidation $inventoryItem
 	 * @return void
@@ -87,8 +72,6 @@ class InventoryItemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 	}
 
 	/**
-	 * action update
-	 *
 	 * @param \VF\LittleLibrary\Domain\Model\InventoryItem $inventoryItem
 	 * @return void
 	 */
@@ -99,8 +82,6 @@ class InventoryItemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 	}
 
 	/**
-	 * action delete
-	 *
 	 * @param \VF\LittleLibrary\Domain\Model\InventoryItem $inventoryItem
 	 * @return void
 	 */
@@ -111,8 +92,6 @@ class InventoryItemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 	}
 
 	/**
-	 * action loan
-	 *
 	 * @return void
 	 */
 	public function loanAction() {
@@ -120,12 +99,9 @@ class InventoryItemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 	}
 
 	/**
-	 * action return
-	 *
 	 * @return void
 	 */
 	public function returnAction() {
 		
 	}
-
 }
