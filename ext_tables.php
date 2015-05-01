@@ -22,9 +22,6 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_inventoryitem'] = array(
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
 
-		'versioningWS' => 2,
-		'versioning_followPages' => TRUE,
-
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',
 		'transOrigDiffSourceField' => 'l10n_diffsource',
@@ -50,9 +47,6 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_media'] = array(
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
-
-		'versioningWS' => 2,
-		'versioning_followPages' => TRUE,
 
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',
@@ -80,9 +74,6 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_person'] = array(
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
 
-		'versioningWS' => 2,
-		'versioning_followPages' => TRUE,
-
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',
 		'transOrigDiffSourceField' => 'l10n_diffsource',
@@ -108,9 +99,6 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_personassignment'] = array(
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
-
-		'versioningWS' => 2,
-		'versioning_followPages' => TRUE,
 
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',
@@ -138,9 +126,6 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_persontype'] = array(
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
 
-		'versioningWS' => 2,
-		'versioning_followPages' => TRUE,
-
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',
 		'transOrigDiffSourceField' => 'l10n_diffsource',
@@ -166,9 +151,6 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_mediatype'] = array(
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
-
-		'versioningWS' => 2,
-		'versioning_followPages' => TRUE,
 
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',
@@ -196,9 +178,6 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_loan'] = array(
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
 
-		'versioningWS' => 2,
-		'versioning_followPages' => TRUE,
-
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',
 		'transOrigDiffSourceField' => 'l10n_diffsource',
@@ -224,9 +203,6 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_publisher'] = array(
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
-
-		'versioningWS' => 2,
-		'versioning_followPages' => TRUE,
 
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',

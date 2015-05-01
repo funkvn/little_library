@@ -48,15 +48,6 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_media'] = array(
 			),
 		),
 
-		't3ver_label' => array(
-			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.versionLabel',
-			'config' => array(
-				'type' => 'input',
-				'size' => 30,
-				'max' => 255,
-			)
-		),
-	
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
