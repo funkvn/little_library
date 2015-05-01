@@ -1,49 +1,41 @@
 <?php
+/**
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
 
 namespace VF\LittleLibrary\Tests\Unit\Domain\Model;
-
-/***************************************************************
- *  Copyright notice
- *
- *  (c) 2015 Valentin Funk <valentin.funk@gmail.com>
- *
- *  All rights reserved
- *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
 
 /**
  * Test case for class \VF\LittleLibrary\Domain\Model\Media.
  *
- * @copyright Copyright belongs to the respective authors
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- *
  * @author Valentin Funk <valentin.funk@gmail.com>
  */
 class MediaTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
+
 	/**
 	 * @var \VF\LittleLibrary\Domain\Model\Media
 	 */
 	protected $subject = NULL;
 
+	/**
+	 * @return void
+	 */
 	protected function setUp() {
 		$this->subject = new \VF\LittleLibrary\Domain\Model\Media();
 	}
 
+	/**
+	 * @return void
+	 */
 	protected function tearDown() {
 		unset($this->subject);
 	}
@@ -97,7 +89,7 @@ class MediaTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function getPublicationDateReturnsInitialValueForDateTime() {
+	public function getPublicationDateReturnsInitialValueForNull() {
 		$this->assertEquals(
 			NULL,
 			$this->subject->getPublicationDate()
@@ -173,10 +165,9 @@ class MediaTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function getTypeReturnsInitialValueForMediaType() {
-		$newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+	public function getTypeReturnsInitialValueForNull() {
 		$this->assertEquals(
-			$newObjectStorage,
+			NULL,
 			$this->subject->getType()
 		);
 	}
@@ -184,42 +175,15 @@ class MediaTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function setTypeForObjectStorageContainingMediaTypeSetsType() {
-		$type = new \VF\LittleLibrary\Domain\Model\MediaType();
-		$objectStorageHoldingExactlyOneType = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$objectStorageHoldingExactlyOneType->attach($type);
-		$this->subject->setType($objectStorageHoldingExactlyOneType);
+	public function setTypeMediaTypeTypeSetsType() {
+		$typeFixture = new \VF\LittleLibrary\Domain\Model\MediaType();
+		$this->subject->setType($typeFixture);
 
 		$this->assertAttributeEquals(
-			$objectStorageHoldingExactlyOneType,
+			$typeFixture,
 			'type',
 			$this->subject
 		);
-	}
-
-	/**
-	 * @test
-	 */
-	public function addTypeToObjectStorageHoldingType() {
-		$type = new \VF\LittleLibrary\Domain\Model\MediaType();
-		$typeObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('attach'), array(), '', FALSE);
-		$typeObjectStorageMock->expects($this->once())->method('attach')->with($this->equalTo($type));
-		$this->inject($this->subject, 'type', $typeObjectStorageMock);
-
-		$this->subject->addType($type);
-	}
-
-	/**
-	 * @test
-	 */
-	public function removeTypeFromObjectStorageHoldingType() {
-		$type = new \VF\LittleLibrary\Domain\Model\MediaType();
-		$typeObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('detach'), array(), '', FALSE);
-		$typeObjectStorageMock->expects($this->once())->method('detach')->with($this->equalTo($type));
-		$this->inject($this->subject, 'type', $typeObjectStorageMock);
-
-		$this->subject->removeType($type);
-
 	}
 
 	/**
@@ -277,10 +241,9 @@ class MediaTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function getPublisherReturnsInitialValueForPublisher() {
-		$newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+	public function getPublisherReturnsInitialValueForNull() {
 		$this->assertEquals(
-			$newObjectStorage,
+			NULL,
 			$this->subject->getPublisher()
 		);
 	}
@@ -288,41 +251,14 @@ class MediaTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function setPublisherForObjectStorageContainingPublisherSetsPublisher() {
-		$publisher = new \VF\LittleLibrary\Domain\Model\Publisher();
-		$objectStorageHoldingExactlyOnePublisher = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$objectStorageHoldingExactlyOnePublisher->attach($publisher);
-		$this->subject->setPublisher($objectStorageHoldingExactlyOnePublisher);
+	public function setPublisherForPublisherSetsPublisher() {
+		$publisherFixture = new \VF\LittleLibrary\Domain\Model\Publisher();
+		$this->subject->setPublisher($publisherFixture);
 
 		$this->assertAttributeEquals(
-			$objectStorageHoldingExactlyOnePublisher,
+			$publisherFixture,
 			'publisher',
 			$this->subject
 		);
-	}
-
-	/**
-	 * @test
-	 */
-	public function addPublisherToObjectStorageHoldingPublisher() {
-		$publisher = new \VF\LittleLibrary\Domain\Model\Publisher();
-		$publisherObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('attach'), array(), '', FALSE);
-		$publisherObjectStorageMock->expects($this->once())->method('attach')->with($this->equalTo($publisher));
-		$this->inject($this->subject, 'publisher', $publisherObjectStorageMock);
-
-		$this->subject->addPublisher($publisher);
-	}
-
-	/**
-	 * @test
-	 */
-	public function removePublisherFromObjectStorageHoldingPublisher() {
-		$publisher = new \VF\LittleLibrary\Domain\Model\Publisher();
-		$publisherObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('detach'), array(), '', FALSE);
-		$publisherObjectStorageMock->expects($this->once())->method('detach')->with($this->equalTo($publisher));
-		$this->inject($this->subject, 'publisher', $publisherObjectStorageMock);
-
-		$this->subject->removePublisher($publisher);
-
 	}
 }
