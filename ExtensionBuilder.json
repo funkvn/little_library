@@ -166,7 +166,7 @@
                             "lazyLoading": false,
                             "propertyIsExcludeField": true,
                             "relationDescription": "",
-                            "relationName": "inventoryItem",
+                            "relationName": "inventoryItems",
                             "relationType": "zeroToMany",
                             "relationWire": "[wired]",
                             "uid": "824236870758"
@@ -394,7 +394,7 @@
                             "propertyDescription": "",
                             "propertyIsExcludeField": true,
                             "propertyIsRequired": false,
-                            "propertyName": "type",
+                            "propertyName": "name",
                             "propertyType": "String",
                             "uid": "393412052230"
                         }
@@ -559,7 +559,7 @@
                 "company": "",
                 "email": "valentin.funk@gmail.com",
                 "name": "Valentin Funk",
-                "role": "Developer"
+                "role": "Product Manager"
             }
         ],
         "plugins": [
@@ -686,7 +686,7 @@
         }
     ],
     "log": {
-        "last_modified": "2015-05-01 09:21",
+        "last_modified": "2015-05-01 12:44",
         "extension_builder_version": "6.2.0",
         "be_user": "Valentin Funk (3)"
     }
