@@ -1,0 +1,13 @@
+
+<label for="title">
+	<f:translate key="tx_littlelibrary_domain_model_media.title" />
+</label><br />
+	<f:form.textfield property="title" /><br />
+<label for="subTitle">
+	<f:translate key="tx_littlelibrary_domain_model_media.sub_title" />
+</label><br />
+	<f:form.textfield property="subTitle" /><br />
+<label for="publicationDate">
+	<f:translate key="tx_littlelibrary_domain_model_media.publication_date" />
+</label><br />
+	<f:form.textfield property="publicationDate"  value="{media.publicationDate->f:format.date()}" /><br />

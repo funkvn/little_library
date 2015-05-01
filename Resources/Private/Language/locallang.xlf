@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="messages" date="2015-05-01T08:29:27Z" product-name="little_library">
+		<header/>
+		<body>
+			<trans-unit id="tx_littlelibrary_domain_model_inventoryitem">
+				<source>Inventory Item</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_inventoryitem.shelf_mark">
+				<source>Shelf Mark</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_inventoryitem.media">
+				<source>Media</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_inventoryitem.loans">
+				<source>Loans</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_media">
+				<source>Media</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_media.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_media.sub_title">
+				<source>Sub Title</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_media.publication_date">
+				<source>Publication Date</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_media.persons">
+				<source>Persons</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_media.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_media.inventory_item">
+				<source>Inventory Item</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_media.publisher">
+				<source>Publisher</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_person">
+				<source>Person</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_person.first_name">
+				<source>First Name</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_person.last_name">
+				<source>Last Name</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_personassignment">
+				<source>Person Assignment</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_personassignment.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_personassignment.person">
+				<source>Person</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_persontype">
+				<source>Person Type</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_persontype.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_mediatype">
+				<source>Media Type</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_mediatype.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_loan">
+				<source>Loan</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_loan.period_from">
+				<source>Period From</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_loan.period_to">
+				<source>Period To</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_loan.library_user">
+				<source>Library User</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_loan.inventory_item">
+				<source>Inventory Item</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_publisher">
+				<source>Publisher</source>
+			</trans-unit>
+			<trans-unit id="tx_littlelibrary_domain_model_publisher.name">
+				<source>Name</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

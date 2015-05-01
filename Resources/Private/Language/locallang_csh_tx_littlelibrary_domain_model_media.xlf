@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="messages" date="2015-05-01T08:29:27Z" product-name="little_library">
+		<header/>
+		<body>
+			<trans-unit id="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="sub_title.description">
+				<source>subTitle</source>
+			</trans-unit>
+			<trans-unit id="publication_date.description">
+				<source>publicationDate</source>
+			</trans-unit>
+			<trans-unit id="persons.description">
+				<source>persons</source>
+			</trans-unit>
+			<trans-unit id="type.description">
+				<source>type</source>
+			</trans-unit>
+			<trans-unit id="inventory_item.description">
+				<source>inventoryItem</source>
+			</trans-unit>
+			<trans-unit id="publisher.description">
+				<source>publisher</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
