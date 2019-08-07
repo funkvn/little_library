@@ -26,7 +26,7 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_person_assignment'] = array(
 		'showRecordFieldList' => 'hidden, type, person',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden;;1, type, person, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'hidden;;1, person, type, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -78,9 +78,34 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_person_assignment'] = array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:little_library/Resources/Private/Language/locallang.xlf:tx_littlelibrary_domain_model_person_assignment.person',
 			'config' => array(
-				'type' => 'inline',
+				'type' => 'select',
 				'foreign_table' => 'tx_littlelibrary_domain_model_person',
-				'maxitems'      => 9999,
+				'maxitems' => 1,
+				'size' => 10,
+				'autoSizeMax' => 30,
+				'multiple' => 0,
+				'wizards' => array(
+					'_PADDING' => 1,
+					'_VERTICAL' => 1,
+					'edit' => array(
+						'type' => 'popup',
+						'title' => 'Edit',
+						'script' => 'wizard_edit.php',
+						'icon' => 'edit2.gif',
+						'popup_onlyOpenIfSelected' => 1,
+						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+					),
+					'add' => Array(
+						'type' => 'script',
+						'title' => 'Create new',
+						'icon' => 'add.gif',
+						'params' => array(
+							'pid' => '###CURRENT_PID###',
+							'setValue' => 'prepend'
+						),
+						'script' => 'wizard_add.php',
+					),
+				),
 				'appearance' => array(
 					'collapseAll' => 0,
 					'levelLinksPosition' => 'top',
@@ -94,9 +119,9 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_person_assignment'] = array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:little_library/Resources/Private/Language/locallang.xlf:tx_littlelibrary_domain_model_person_assignment.type',
 			'config' => array(
-				'type' => 'inline',
+				'type' => 'select',
 				'foreign_table' => 'tx_littlelibrary_domain_model_person_type',
-				'maxitems'      => 9999,
+				'maxitems'      => 1,
 				'appearance' => array(
 					'collapseAll' => 0,
 					'levelLinksPosition' => 'top',

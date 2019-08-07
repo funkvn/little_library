@@ -17,9 +17,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:flashMessages renderMode="div" />
 
-<f:render partial="FormErrors" arguments="{object:InventoryItem}" />
+<f:render partial="FormErrors" arguments="{object:inventoryItem}" />
 
-<f:form action="create"  name="newInventoryItem" object="{newInventoryItem}">
+<f:form action="create"  name="inventoryItem" object="{inventoryItem}">
 <f:render partial="InventoryItem/FormFields" />
 	<f:form.submit value="Create new" />
 </f:form>

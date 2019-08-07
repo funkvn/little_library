@@ -144,16 +144,30 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_media'] = array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:little_library/Resources/Private/Language/locallang.xlf:tx_littlelibrary_domain_model_media.publisher',
 			'config' => array(
-				'type' => 'inline',
+				'type' => 'select',
 				'foreign_table' => 'tx_littlelibrary_domain_model_publisher',
-				'foreign_field' => 'media',
-				'maxitems'      => 9999,
-				'appearance' => array(
-					'collapseAll' => 0,
-					'levelLinksPosition' => 'top',
-					'showSynchronizationLink' => 1,
-					'showPossibleLocalizationRecords' => 1,
-					'showAllLocalizationLink' => 1
+				'wizards' => array(
+					'_PADDING' => 1,
+					'_VERTICAL' => 1,
+					'edit' => array(
+						'type' => 'popup',
+						'title' => 'Edit',
+						'script' => 'wizard_edit.php',
+						'icon' => 'edit2.gif',
+						'popup_onlyOpenIfSelected' => 1,
+						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+					),
+					'add' => Array(
+						'type' => 'script',
+						'title' => 'Create new',
+						'icon' => 'add.gif',
+						'params' => array(
+							'table' => 'tx_littlelibrary_domain_model_person_assignment',
+							'pid' => '###CURRENT_PID###',
+							'setValue' => 'prepend'
+						),
+						'script' => 'wizard_add.php',
+					),
 				),
 			),
 		),
@@ -161,10 +175,9 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_media'] = array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:little_library/Resources/Private/Language/locallang.xlf:tx_littlelibrary_domain_model_media.type',
 			'config' => array(
-				'type' => 'inline',
-				'foreign_table' => 'tx_littlelibrary_domain_model_mediatype',
-				'foreign_field' => 'media',
-				'maxitems'      => 9999,
+				'type' => 'select',
+				'foreign_table' => 'tx_littlelibrary_domain_model_media_type',
+				'maxitems' => 1,
 				'appearance' => array(
 					'collapseAll' => 0,
 					'levelLinksPosition' => 'top',

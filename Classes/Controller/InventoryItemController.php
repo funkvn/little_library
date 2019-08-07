@@ -22,10 +22,10 @@ namespace VF\LittleLibrary\Controller;
 class InventoryItemController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	/**
-	 * @var \TYPO3\CMS\Extbase\Persistence\Repository
+	 * @var \VF\LittleLibrary\Domain\Repository\InventoryItemRepository
 	 * @inject
 	 */
-	protected $inventoryItemRepository = NULL;
+	protected $inventoryItemRepository;
 
 	/**
 	 * @return void

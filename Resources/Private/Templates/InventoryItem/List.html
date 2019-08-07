@@ -1,4 +1,3 @@
-
 <f:layout name="Default" />
 
 This Template is responsible for creating a table of domain objects.
@@ -17,16 +16,16 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:flashMessages renderMode="div" />
 
-<table  class="tx_littlelibrary" >
+	<table class="tx_littlelibrary" >
 	<tr>
-		<th><f:translate key="tx_littlelibrary_domain_model_inventoryitem.shelf_mark" /></th>
+		<th><f:translate key="tx_littlelibrary_domain_model_inventory_item.shelf_mark" /></th>
 		<th> </th>
 		<th> </th>
 	</tr>
 
 	<f:for each="{inventoryItems}" as="inventoryItem">
 		<tr>
-			<td><f:link.action action="show" arguments="{inventoryItem : inventoryItem}"> {inventoryItem.shelfMark}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{inventoryItem : inventoryItem}">{inventoryItem.media} ({inventoryItem.shelfMark})</f:link.action> <f:for each="{inventoryItem.loans}" as="loan"><f:format.date format="d.m.Y">{loan.periodTo}</f:format.date><br/></f:for></td>
 			<td><f:link.action action="edit" arguments="{inventoryItem : inventoryItem}">Edit</f:link.action></td>
 			<td><f:link.action action="delete" arguments="{inventoryItem : inventoryItem}">Delete</f:link.action></td>
 		</tr>

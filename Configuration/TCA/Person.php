@@ -26,7 +26,7 @@ $GLOBALS['TCA']['tx_littlelibrary_domain_model_person'] = array(
 		'showRecordFieldList' => 'hidden, first_name, last_name',
 	),
 	'types' => array(
-		'1' => array('hidden;;1, first_name, last_name, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'hidden;;1, first_name, last_name, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),

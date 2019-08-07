@@ -89,6 +89,13 @@ class Media extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
+	 * @return string
+	 */
+	public function __toString() {
+		return $this->getTitle();
+	}
+
+	/**
 	 * Returns the title
 	 *
 	 * @return string $title

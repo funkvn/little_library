@@ -67,7 +67,7 @@
 			<trans-unit id="tx_littlelibrary_domain_model_media_type">
 				<source>Media Type</source>
 			</trans-unit>
-			<trans-unit id="tx_littlelibrary_domain_model_media_type.type">
+			<trans-unit id="tx_littlelibrary_domain_model_media_type.name">
 				<source>Type</source>
 			</trans-unit>
 			<trans-unit id="tx_littlelibrary_domain_model_loan">

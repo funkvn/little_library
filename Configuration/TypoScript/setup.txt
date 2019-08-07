@@ -7,6 +7,24 @@ plugin.tx_littlelibrary {
 	}
 	persistence {
 		storagePid = {$plugin.tx_littlelibrary.persistence.storagePid}
+		// Fix the not stringent convention for camel case to underscore...
+		classes {
+			VF\LittleLibrary\Domain\Model\InventoryItem {
+				mapping {
+					tableName = tx_littlelibrary_domain_model_inventory_item
+				}
+			}
+			VF\LittleLibrary\Domain\Model\MediaType {
+				mapping {
+					tableName = tx_littlelibrary_domain_model_media_type
+				}
+			}
+			VF\LittleLibrary\Domain\Model\PersonType {
+				mapping {
+					tableName = tx_littlelibrary_domain_model_person_type
+				}
+			}
+		}
 	}
 	features {
 		# uncomment the following line to enable the new Property Mapper.
